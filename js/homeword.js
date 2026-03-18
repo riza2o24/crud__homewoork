@@ -8,6 +8,8 @@ const emailInput = document.getElementById("email")
 
 let cards = []
 
+
+
 fetch("https://dummyjson.com/users")
 .then(res => res.json())
 .then(data => {
@@ -42,6 +44,30 @@ function createCard(item,i){
     user.appendChild(div)
 }
 
+function addCard(){
+
+    if(!nameInput.value || !ageInput.value || !phoneInput.value || !emailInput.value){
+        alert("Inputlarni to‘ldiring!")
+        return
+    }
+
+    const newUser = {
+        lastName: nameInput.value,
+        age: ageInput.value,
+        phone: phoneInput.value,
+        email: emailInput.value,
+        image: "https://dummyjson.com/icon/emilys/128"
+    }
+
+    cards.push(newUser)
+
+    createCard(newUser, cards.length - 1)
+
+    nameInput.value = ""
+    ageInput.value = ""
+    phoneInput.value = ""
+    emailInput.value = ""
+}
 
 
 
@@ -92,3 +118,4 @@ function deleteCard(btn){
     const card = btn.closest(".divs")
     card.remove()
 }
+
