@@ -44,6 +44,8 @@ function createCard(item,i){
     user.appendChild(div)
 }
 
+
+
 function addCard(){
 
     if(!nameInput.value || !ageInput.value || !phoneInput.value || !emailInput.value){
